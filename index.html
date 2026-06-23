@@ -579,6 +579,205 @@
     })();
   </script>
 
+  <!-- 10. PARTNERS SECTION -->
+  <section class="partners-section">
+    <style>
+      .partners-section {
+        width: 100%;
+        padding: 76px 20px 70px;
+        background: transparent;
+        font-family: inherit;
+        color: #050505;
+        box-sizing: border-box;
+      }
+
+      .partners-wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .partners-kicker {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #050505;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .partners-title {
+        margin: 0 0 12px;
+        font-size: clamp(36px, 6vw, 62px);
+        line-height: 0.92;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      .partners-subtitle {
+        max-width: 620px;
+        margin: 0 auto 38px;
+        font-size: 16px;
+        line-height: 1.45;
+        font-weight: 650;
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .partner-card {
+        min-height: 205px;
+        padding: 18px 14px 18px;
+        border: 3px solid #050505;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.48);
+        box-shadow: 6px 6px 0 #050505;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .partner-logo-box {
+        width: 100%;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        background: rgba(255, 255, 255, 0.76);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .partner-logo-box img {
+        max-width: 94%;
+        max-height: 112px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .partner-name {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.15;
+        font-weight: 950;
+      }
+
+      @media (max-width: 1000px) {
+        .partners-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .partner-card {
+          min-height: 200px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .partners-section {
+          padding: 58px 16px 56px;
+        }
+
+        .partners-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+
+        .partner-card {
+          min-height: 178px;
+          padding: 14px 11px 15px;
+          box-shadow: 4px 4px 0 #050505;
+        }
+
+        .partner-logo-box {
+          height: 108px;
+          margin-bottom: 13px;
+        }
+
+        .partner-logo-box img {
+          max-width: 96%;
+          max-height: 94px;
+        }
+
+        .partner-name {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .partners-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .partner-logo-box {
+          height: 120px;
+        }
+
+        .partner-logo-box img {
+          max-height: 104px;
+        }
+      }
+    </style>
+
+    <div class="partners-wrap">
+      <span class="partners-kicker">Our Partners</span>
+      <h2 class="partners-title">Local partners.<br>Real flavour.</h2>
+      <p class="partners-subtitle">
+        Together with trusted partners, we bring fresh ingredients and quality to every stop.
+      </p>
+
+      <div class="partners-grid">
+        <article class="partner-card">
+          <div class="partner-logo-box">
+            <img src="https://raw.githubusercontent.com/didilol001/cheesyengadinmenu/refs/heads/main/7a18257a-7c4a-48da-b5d4-4a9f323f8e9f.png" alt="Metzgerei Heuberger">
+          </div>
+          <p class="partner-name">Metzgerei Heuberger</p>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-logo-box">
+            <img src="https://raw.githubusercontent.com/didilol001/cheesyengadinmenu/refs/heads/main/Screenshot%202026-06-09%20194906.png" alt="LUF Schweiz">
+          </div>
+          <p class="partner-name">LUF Schweiz</p>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-logo-box">
+            <img src="https://github.com/didilol001/cheesyengadinmenu/blob/main/cropped-Logo_MangiativasKlein_4.png?raw=true" alt="Mangiativas Madulain">
+          </div>
+          <p class="partner-name">Mangiativas Madulain</p>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-logo-box">
+            <img src="https://raw.githubusercontent.com/didilol001/cheesyengadinmenu/refs/heads/main/Transgourmet_Schweiz.png" alt="Transgourmet Schweiz">
+          </div>
+          <p class="partner-name">Transgourmet Schweiz</p>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-logo-box">
+            <img src="https://raw.githubusercontent.com/didilol001/cheesyengadinmenu/refs/heads/main/Sennerei_balken_www_rgb.jpg" alt="Sennerei Pontresina">
+          </div>
+          <p class="partner-name">Sennerei Pontresina</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- 11. WAVE + MAP -->
   <section class="map-section">
     <div class="wave-top" aria-hidden="true">
