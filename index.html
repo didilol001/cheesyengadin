@@ -344,7 +344,7 @@
     <div class="feature-text">
       <h2 class="feature-title">Menu</h2>
       <p class="feature-body">Explore our food truck menu. Fresh ingredients, bold flavors &amp; street food at its best!</p>
-      <a href="#" class="btn">Explore our menu</a>
+      <a href="menu.html" class="btn">Explore our menu</a>
     </div>
     <img src="assets/menusection.jpg" alt="Menu" class="feature-media feature-img" />
   </section>
@@ -355,7 +355,7 @@
     <div class="feature-text">
       <h2 class="feature-title">Catering</h2>
       <p class="feature-body">Delicious catering straight from our food truck – fresh, flexible &amp; full of flavor!</p>
-      <a href="#" class="btn">Book our catering</a>
+      <a href="catering.html" class="btn">Book our catering</a>
     </div>
   </section>
 
@@ -364,15 +364,16 @@
     <div class="feature-text">
       <h2 class="feature-title">About us</h2>
       <p class="feature-body">Passionate about great food on the go – bringing fresh, flavorful street food to you!</p>
-      <a href="#" class="btn">Learn more</a>
+      <a href="about-us.html" class="btn">Learn more</a>
     </div>
     <img src="assets/aboutussection.jpg" alt="About us" class="feature-media feature-img portrait" />
   </section>
 
   <!-- 10. REVIEWS -->
   <section class="reviews">
-    <button class="review-nav prev" aria-label="Previous reviews" onclick="slideReviews(-1)">‹</button>
+    <button class="review-nav prev" aria-label="Previous reviews" id="reviewPrev">‹</button>
 
+    <div class="review-viewport">
     <div class="review-track" id="reviewTrack">
 
       <article class="review-card">
@@ -552,30 +553,90 @@
       </article>
 
     </div>
+    </div>
 
-    <button class="review-nav next" aria-label="Next reviews" onclick="slideReviews(1)">›</button>
+    <button class="review-nav next" aria-label="Next reviews" id="reviewNext">›</button>
   </section>
 
   <script>
     (function() {
       const track = document.getElementById('reviewTrack');
-      let page = 0;
+      const viewport = track.parentElement;
+
+      // Clone all cards for seamless infinite loop
+      const origCards = Array.from(track.querySelectorAll('.review-card'));
+      origCards.forEach(c => track.appendChild(c.cloneNode(true)));
+
       const perPage = () => window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
+      let cardWidth = 0;
+      let currentIndex = 0;
+      let transitioning = false;
+      let autoTimer;
 
-      window.slideReviews = function(dir) {
+      function getCardWidth() {
         const cards = track.querySelectorAll('.review-card');
-        const pp = perPage();
-        const maxPage = Math.ceil(cards.length / pp) - 1;
-        page = Math.max(0, Math.min(maxPage, page + dir));
-        const offset = page * pp;
-        cards.forEach((c, i) => {
-          c.style.display = (i >= offset && i < offset + pp) ? '' : 'none';
-        });
-      };
+        if (!cards.length) return 0;
+        const style = window.getComputedStyle(cards[0]);
+        return cards[0].offsetWidth + parseInt(style.marginRight || 0) + 16;
+      }
 
-      // init
-      window.slideReviews(0);
-      window.addEventListener('resize', () => { page = 0; window.slideReviews(0); });
+      function goTo(index, animate = true) {
+        const cards = track.querySelectorAll('.review-card');
+        const total = origCards.length;
+        cardWidth = getCardWidth();
+        const pp = perPage();
+
+        if (!animate) {
+          track.style.transition = 'none';
+        } else {
+          track.style.transition = 'transform 0.5s ease';
+        }
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        currentIndex = index;
+
+        // Seamless jump: if past the original set, silently reset
+        if (animate) {
+          transitioning = true;
+          setTimeout(() => {
+            if (currentIndex >= total) {
+              currentIndex = currentIndex - total;
+              goTo(currentIndex, false);
+            } else if (currentIndex < 0) {
+              currentIndex = currentIndex + total;
+              goTo(currentIndex, false);
+            }
+            transitioning = false;
+          }, 500);
+        }
+      }
+
+      function next() {
+        if (transitioning) return;
+        goTo(currentIndex + perPage());
+        resetAuto();
+      }
+
+      function prev() {
+        if (transitioning) return;
+        goTo(currentIndex - perPage());
+        resetAuto();
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goTo(currentIndex + 1), 3500);
+      }
+
+      document.getElementById('reviewNext').addEventListener('click', next);
+      document.getElementById('reviewPrev').addEventListener('click', prev);
+
+      function init() {
+        goTo(0, false);
+        resetAuto();
+      }
+
+      window.addEventListener('resize', () => { goTo(currentIndex, false); });
+      init();
     })();
   </script>
 
