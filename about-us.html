@@ -17,13 +17,16 @@
       <a href="index.html" class="nav-logo" aria-label="Cheesy home">
         <img src="assets/käselogo.svg" alt="Cheesy" class="nav-logo-cheese" />
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="event-services.html">Event Services</a>
         <a href="catering.html">Catering</a>
         <a href="about-us.html" class="active">About Us</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -165,5 +168,12 @@
     <p class="footer-credit">This website was made by Grovia Webdesign</p>
   </footer>
 
+  <script>
+    (function(){
+      var t=document.getElementById('navToggle');
+      var l=document.getElementById('navLinks');
+      if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}
+    })();
+  </script>
 </body>
 </html>
