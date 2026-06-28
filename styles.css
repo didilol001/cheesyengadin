@@ -1450,3 +1450,19 @@ img { max-width: 100%; display: block; }
   .cookie-btn { flex: 1; }
   .legal-content { padding: 36px 18px 60px; font-size: 15px; }
 }
+
+/* ============================================================
+   WAVE VARIANTS – kürzere Perioden auf Desktop, breitere auf Mobile
+   ============================================================ */
+.footer-wave svg.wave-m,
+.menu-quote-wave svg.wave-m,
+.wave-top svg.wave-m { display: none; }
+
+@media (max-width: 640px) {
+  .footer-wave svg.wave-d,
+  .menu-quote-wave svg.wave-d,
+  .wave-top svg.wave-d { display: none; }
+  .footer-wave svg.wave-m,
+  .menu-quote-wave svg.wave-m,
+  .wave-top svg.wave-m { display: block; }
+}
