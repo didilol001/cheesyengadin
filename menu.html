@@ -149,9 +149,9 @@
       <a href="menu.html">Menu</a>
       <a href="catering.html">Catering</a>
       <a href="about-us.html">About Us</a>
-      <a href="#">Impressum</a>
-      <a href="#">Privacy policy</a>
-      <a href="#">Admin</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
     </nav>
     <p class="footer-credit">This website was made by Grovia Webdesign</p>
   </footer>
@@ -163,5 +163,15 @@
       if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}
     })();
   </script>
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie-Hinweis" style="display:none">
+    <div class="cookie-inner">
+      <p class="cookie-text">Wir verwenden technisch notwendige Cookies sowie &ndash; nur mit deiner Zustimmung &ndash; externe Dienste (Google Maps, Instagram/SnapWidget), die Daten ins Ausland &uuml;bertragen k&ouml;nnen. Du entscheidest, was geladen wird. Details in der <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</p>
+      <div class="cookie-buttons">
+        <button id="cookieReject" class="cookie-btn cookie-btn-secondary" type="button">Nur notwendige</button>
+        <button id="cookieAccept" class="cookie-btn cookie-btn-primary" type="button">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+  <script src="assets/cookie-consent.js"></script>
 </body>
 </html>
