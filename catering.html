@@ -81,6 +81,7 @@
 
         <button type="submit" class="btn btn-submit">Submit</button>
         <p class="form-privacy">Mit dem Absenden deiner Anfrage stimmst du der Verarbeitung deiner Daten gemäss unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -117,6 +118,40 @@
       var t=document.getElementById('navToggle');
       var l=document.getElementById('navLinks');
       if(t&&l){t.addEventListener('click',function(){var o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});}
+    })();
+  </script>
+  <script>
+    (function(){
+      var WEBHOOK = 'https://hook.eu2.make.com/xjs1cga7cb5m8qj2svvwhqqgs9kntkqj';
+      var form = document.querySelector('.catering-form');
+      if(!form) return;
+      var btn = form.querySelector('.btn-submit');
+      var status = document.getElementById('formStatus');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(!form.checkValidity()){ form.reportValidity(); return; }
+        var body = new URLSearchParams(new FormData(form));
+        var orig = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.textContent = '';
+        status.className = 'form-status';
+        fetch(WEBHOOK, { method: 'POST', body: body })
+          .then(function(res){
+            if(!res.ok) throw new Error('bad response');
+            form.reset();
+            status.textContent = 'Thank you! Your request has been sent — we\'ll get back to you soon.';
+            status.className = 'form-status success';
+          })
+          .catch(function(){
+            status.textContent = 'Something went wrong. Please try again or email us at cheesyengadin@gmail.com.';
+            status.className = 'form-status error';
+          })
+          .finally(function(){
+            btn.disabled = false;
+            btn.textContent = orig;
+          });
+      });
     })();
   </script>
   <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie-Hinweis" style="display:none">

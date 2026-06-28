@@ -1444,6 +1444,16 @@ img { max-width: 100%; display: block; }
 }
 .form-privacy a { color: #272626; }
 
+.form-status {
+  margin: 12px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.form-status:empty { margin: 0; }
+.form-status.success { color: #1a5e20; }
+.form-status.error { color: #9b1c1c; }
+
 @media (max-width: 640px) {
   .cookie-inner { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
   .cookie-buttons { justify-content: stretch; }
