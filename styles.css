@@ -1518,3 +1518,85 @@ img { max-width: 100%; display: block; }
   .menu-quote-wave svg.wave-m,
   .wave-top svg.wave-m { display: block; }
 }
+
+/* ============================================================
+   CATERING PACKAGE OFFER (catering.html)
+   ============================================================ */
+.offer-section {
+  background: var(--cheese);
+  padding: 72px 24px;
+  display: flex;
+  justify-content: center;
+}
+.offer-card {
+  background: var(--dark);
+  color: #fff;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 26px;
+  padding: 48px 44px 44px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(20, 20, 20, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.offer-eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--cheese);
+}
+.offer-name {
+  margin: 0 0 22px;
+  font-size: clamp(32px, 6vw, 46px);
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: #fff;
+}
+.offer-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.offer-price-amount {
+  font-size: clamp(48px, 10vw, 66px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: var(--cheese);
+  line-height: 1;
+}
+.offer-price-unit {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+}
+.offer-condition {
+  margin: 0 0 34px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.72);
+}
+.offer-cta {
+  display: inline-block;
+  background: var(--cheese);
+  color: #141414;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  padding: 16px 32px;
+  border-radius: 14px;
+  line-height: 1;
+  transition: background .15s ease, transform .15s ease;
+}
+.offer-cta:hover { background: var(--cheese-dark); transform: translateY(-1px); }
+.offer-cta:active { transform: translateY(0) scale(0.98); }
+
+@media (max-width: 640px) {
+  .offer-section { padding: 52px 18px; }
+  .offer-card { padding: 40px 26px 36px; border-radius: 22px; }
+}
