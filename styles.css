@@ -347,6 +347,18 @@ img { max-width: 100%; display: block; }
   display: block;
   width: 100%;
 }
+/* Instagram feed: two SnapWidget embeds, one per breakpoint.
+   Both start display:none inline (pre-consent); the consent script clears
+   the inline display, then these media queries pick the right embed. */
+.insta-grid iframe.insta-embed-desktop { display: none; }
+@media (min-width: 800px) {
+  .insta-grid iframe.insta-embed-mobile { display: none; }
+  .insta-grid iframe.insta-embed-desktop {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
 
 /* ============================================================
    7-9. FEATURE SECTIONS (Menu / Catering / About)

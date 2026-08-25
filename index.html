@@ -436,7 +436,10 @@
   <section class="insta-grid" aria-label="Instagram feed">
     <!-- SnapWidget (lädt erst nach Cookie-Zustimmung) -->
     <script type="text/plain" data-consent-script="https://snapwidget.com/js/snapwidget.js"></script>
-    <iframe data-consent-src="https://snapwidget.com/embed/1098522" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; display:none;" title="CheesyEngadin"></iframe>
+    <!-- Mobile: responsive full-width feed -->
+    <iframe data-consent-src="https://snapwidget.com/embed/1098522" class="snapwidget-widget insta-embed-mobile" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; display:none;" title="CheesyEngadin"></iframe>
+    <!-- Desktop: fixed 765x510 feed -->
+    <iframe data-consent-src="https://snapwidget.com/embed/1129459" class="snapwidget-widget insta-embed-desktop" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:765px; height:510px; display:none;" title="CheesyEngadin"></iframe>
     <div class="consent-placeholder">
       <p>Hier wird unser Instagram-Feed angezeigt. Dabei werden Daten an SnapWidget&nbsp;/&nbsp;Instagram (Meta, USA) übertragen.</p>
       <button class="consent-load-btn" type="button">Instagram-Feed laden</button>
