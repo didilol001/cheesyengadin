@@ -1182,6 +1182,11 @@ img { max-width: 100%; display: block; }
   margin: 0;
   opacity: .85;
 }
+.footer-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ============================================================
    MENU PAGE – QUOTE + WAVE
